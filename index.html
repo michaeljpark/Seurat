@@ -33,6 +33,14 @@
     -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); touch-action: manipulation; transition: background .2s; }
   #ui button:active { background: rgba(255,255,255,.25); }
   #ui svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  /* desktop: Y opens a small code field, centre screen */
+  #code { position: fixed; z-index: 2; left: 50%; top: 50%; transform: translate(-50%, -50%); margin: 0; }
+  #code[hidden] { display: none; }
+  #code input { width: 200px; padding: 10px 18px; border: 1px solid rgba(255,255,255,.35); border-radius: 999px;
+    background: rgba(0,0,0,.3); color: #fff; font: 500 15px/1.2 -apple-system, "Malgun Gothic", system-ui, sans-serif;
+    letter-spacing: .12em; text-align: center; outline: none; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+  #code.wrong input { animation: shake .35s; border-color: rgba(255,120,120,.6); }
+  @keyframes shake { 25% { transform: translateX(-8px); } 75% { transform: translateX(8px); } }
   #pause .play, #pause.paused .bars { display: none; }
   #pause.paused .play { display: block; }
 </style>
@@ -40,6 +48,7 @@
 <body>
 <div id="status"></div>
 <div id="start"><span>TAP TO ENTER</span></div>
+<form id="code" hidden autocomplete="off"><input id="code-in" type="text" spellcheck="false" aria-label="Code"></form>
 <div id="ui" hidden>
   <button id="pause" aria-label="Pause">
     <svg class="bars" viewBox="0 0 16 16"><path d="M5 3v10M11 3v10"/></svg>
@@ -49,6 +58,6 @@
     <svg viewBox="0 0 16 16"><path d="M13.5 8a5.5 5.5 0 1 1-1.6-3.9"/><path d="M12.5 1.5v3h-3"/></svg>
   </button>
 </div>
-<script type="module" src="app.9f3a0264.js"></script>
+<script type="module" src="app.76541138.js"></script>
 </body>
 </html>
